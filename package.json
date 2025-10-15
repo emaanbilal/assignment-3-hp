@@ -11,14 +11,13 @@
   "engines": {
     "node": "20.x"
   },
-  "devDependencies": {
+  "dependencies": {
+    "@google/genai": "^0.2.0",
     "@sveltejs/adapter-vercel": "^5.3.1",
     "@sveltejs/kit": "2.5.10",
     "@sveltejs/vite-plugin-svelte": "^3.0.2",
     "svelte": "^4.2.18",
     "vite": "^5.4.0"
   },
-  "dependencies": {
-    "@google/genai": "^0.2.0"
-  }
+  "devDependencies": {}
 }
