@@ -1,5 +1,10 @@
 import { json } from '@sveltejs/kit';
-import { Orchestrator } from '$lib/orchestrators/ExampleJoySadOrchestrator.js';
+import { UnstuckRouterOrchestrator } from '$lib/orchestrators/UnstuckRouterOrchestrator.js';
+import { UnstuckSynthesizerOrchestrator } from '$lib/orchestrators/UnstuckSynthesizerOrchestrator.js';
+import { InvestigatorAgent } from '$lib/agents/InvestigatorAgent.js';
+import { PermissionGiverAgent } from '$lib/agents/PermissionGiverAgent.js';
+import { OrganizerAgent } from '$lib/agents/OrganizerAgent.js';
+import { TinyActionCoachAgent } from '$lib/agents/TinyActionAgent.js';
 
 /**
  * Handle chat POST requests for a single-turn pipeline execution.
@@ -16,7 +21,27 @@ export async function POST({ request }) {
   }
 
   try {
-    const orchestrator = new Orchestrator();
+    // Create all agents
+    const investigatorAgent = new InvestigatorAgent();
+    const permissionGiverAgent = new PermissionGiverAgent();
+    const organizerAgent = new OrganizerAgent();
+    const tinyActionCoachAgent = new TinyActionCoachAgent();
+    
+    // Create synthesizer orchestrator with all agents
+    const synthesizer = new UnstuckSynthesizerOrchestrator([
+      permissionGiverAgent,
+      organizerAgent,
+      tinyActionCoachAgent
+    ]);
+    
+    // Create main router orchestrator with agents and synthesizer
+    const orchestrator = new UnstuckRouterOrchestrator([
+      investigatorAgent,
+      permissionGiverAgent,
+      organizerAgent,
+      tinyActionCoachAgent
+    ], synthesizer);
+    
     const contents = history.map((m) => ({ role: m.role === 'user' ? 'user' : 'model', parts: [{ text: m.content }] }));
     
     const { assistantMessage, frameSet, agent, reasons } = await orchestrator.orchestrate(contents);
