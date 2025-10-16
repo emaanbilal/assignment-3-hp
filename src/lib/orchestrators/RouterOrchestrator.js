@@ -91,7 +91,7 @@ export class HogwartsRouterOrchestrator {
 
       Mentor Specialties & Escalation:
       * Gryffindor (Courage): For direct action and motivation.
-      * Hufflepuff (Support): For emotional comfort. **Crucial when emotional tone or a negative trajectory contradicts a logical request.**
+      * Hufflepuff (Support): For emotional comfort.
       * Ravenclaw (Clarity): For analysis and planning.
       * Slytherin (Strategy): For long-term goals and ambition.
       * Synthesizer (The Council): Escalate ONLY for an exceptionally complex initial message.

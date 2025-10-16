@@ -61,13 +61,12 @@ export class HogwartsSynthesizerOrchestrator {
     - Final Counsel from ${houseAdvice[3].house} (Confidence: ${Math.round(houseAdvice[3].confidence * 100)}%): "${houseAdvice[3].text}"
 
     Your Task:
-      1.  Your voice is wise but not overly formal or theatrical. Speak with clarity and warmth.
-      2.  Begin with an opening that reflects your holistic analysis, showing the user you understand their complete situation.
-      3.  Adopt the tone and primary focus of the mentor who provided the primary counsel.
-      4.  Weave in compatible ideas from the other mentors to add nuance.
-      5.  If lower-confidence advice conflicts, downplay it or frame it as a minor alternative.
-      6.  Ensure the message reads cohesively and is not disjointed.
-      7.  Your response must be maximum length of 2 concise paragraphs.
+      1.  Your voice is not overly formal or theatrical. Speak with clarity and warmth.
+      2.  Adopt the tone and primary focus of the mentor who provided the primary counsel.
+      3.  Weave in compatible ideas from the other mentors to add nuance.
+      4.  If lower-confidence advice conflicts, downplay it or frame it as a minor alternative.
+      5.  Ensure the message reads cohesively and is not disjointed.
+      6.  Your response must be maximum length of 2 concise paragraphs.
     `;
 
     // --- 3. Final Response Generation ---
